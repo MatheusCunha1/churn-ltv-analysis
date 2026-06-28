@@ -1,0 +1,21 @@
+# Dados brutos — ficam no MinIO
+data/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Credenciais
+.env
+*.env
+
+# Sistema
+.DS_Store
+Thumbs.db
