@@ -18,6 +18,8 @@ venv/
 
 # Claude Code
 .claude/
+CLAUDE.md
+docs/
 
 # Sistema
 .DS_Store
