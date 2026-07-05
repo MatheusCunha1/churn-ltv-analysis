@@ -44,11 +44,11 @@ users_data.csv
 
 ---
 
-JSON (cards type ou similar)
------------------------------
-- Tem vírgula dentro dos campos — pode dar problema no parser
-- Avaliar na próxima sessão
-- Possível necessidade: reformatar JSON antes de processar
+mcc_codes.json
+--------------
+- Tabela de categorias de estabelecimentos
+- Renomear colunas: id → id_categoria, descrição atual → descricao_categoria
+- Sem outras transformações necessárias
 
 ---
 
