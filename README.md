@@ -1,6 +1,20 @@
 # Churn & LTV Analysis
 
-Pipeline de dados end-to-end para análise de churn e lifetime value de clientes de cartão de crédito.
+![Python](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-Compose-2496ED?logo=docker&logoColor=white)
+![DuckDB](https://img.shields.io/badge/DuckDB-1.5-FFF000?logoColor=black)
+![dbt](https://img.shields.io/badge/dbt-Core-FF694B?logo=dbt&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Em%20desenvolvimento-yellow)
+
+Pipeline de dados end-to-end construído como projeto de estudo de Analytics Engineering, usando dados reais de transações de cartão de crédito.
+
+## Sobre
+
+Projeto de aprendizado prático para construir um pipeline completo com arquitetura Medalhão — desde a ingestão dos dados brutos até a visualização em um dashboard de BI.
+
+O dataset contém dados de clientes, cartões, transações (~13 milhões de registros) e categorias de estabelecimentos (MCC codes), totalizando 1.17GB. A exploração dos dados guiará as perguntas de negócio que serão respondidas na camada Gold, como padrões de churn e lifetime value de clientes.
+
+O foco do projeto é aprender na prática as ferramentas da stack moderna de dados: MinIO, Pandas, DuckDB, dbt, Airflow e Metabase.
 
 ## Arquitetura
 
@@ -31,10 +45,13 @@ Metabase (BI)
 
 Dataset de transações de cartão de crédito com ~13 milhões de registros (1.17GB).
 
-Arquivos:
-- `cards_data.csv` — dados dos cartões (6.146 registros)
-- `transactions_data.csv` — transações (~13M registros)
-- `online_data.csv` — dados de transações online
+| Arquivo | Descrição |
+|---|---|
+| `cards_data.csv` | Dados dos cartões (6.146 registros) |
+| `transactions_data.csv` | Transações (~13M registros) |
+| `users_data.csv` | Dados demográficos e financeiros dos clientes |
+| `online_data.csv` | Dados de transações online |
+| `mcc_codes.json` | Categorias de estabelecimentos (Merchant Category Codes) |
 
 ## Estrutura do Projeto
 
@@ -72,6 +89,10 @@ Credenciais padrão: `minioadmin` / `minioadmin`
 ### Instalar dependências
 
 ```bash
+python -m venv .venv
+source .venv/bin/activate  # Linux/Mac
+.venv\Scripts\activate     # Windows
+
 pip install -r requirements.txt
 ```
 
