@@ -1,10 +1,8 @@
 import boto3 
+import duckdb
 
 def get_minio_client():
-      """
-      Retorna cliente conectado no MinIO.
-      Centralizado: mudanças de credencial só aqui.
-      """
+
       return boto3.client(
           's3',
           endpoint_url='http://minio:9000',
@@ -13,3 +11,17 @@ def get_minio_client():
       )
 
 
+def get_duckdb_connection():
+
+    con =duckdb.connect()
+    con.sql("""
+        INSTALL httpfs;
+        LOAD httpfs;
+        SET s3_endpoint='localhost:9000';
+        SET s3_access_key_id='minioadmin';
+        SET s3_secret_access_key='minioadmin';
+        SET s3_use_ssl=false;
+        SET s3_url_style='path';
+    """)
+    
+    return con
